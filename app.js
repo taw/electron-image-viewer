@@ -4,17 +4,21 @@ let $ = require("jquery");
 let remote = require('electron').remote;
 let argv = remote.getGlobal('sharedObject').argv;
 
+let images_in_folder = (folder_path) => {
+  let files = fs.readdirSync(folder_path)
+  return files.filter(x =>  /\.(png|jpg|jpeg|gif)/i.test(x))
+}
+
 let root_path;
 if (argv.length >= 3) {
   root_path = argv[2];
 } else {
-  root_path = path.join(process.cwd(), "pics");
+  root_path = process.cwd();
 }
 
-let files = fs.readdirSync(root_path)
+let files = images_in_folder(root_path)
 
 for(let file_name of files) {
-  // only if image file
   let url = path.join(root_path, file_name);
   $("#slideshow").append(`<div class="slide"><img src="${ url }" /></div>`);
 }
