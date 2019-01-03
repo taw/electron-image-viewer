@@ -33,4 +33,8 @@ $(document).on("keydown", (event) => {
     st = Math.max(0, st - sh);
     $("#slideshow").scrollTop(st);
   }
+  if (event.key === "Escape") {
+    let window = remote.getCurrentWindow();
+    window.close();
+  }
 })
