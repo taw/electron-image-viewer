@@ -1,0 +1,16 @@
+{
+  "name": "electron-image-viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "Tomasz Wegrzanowski",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^4.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
