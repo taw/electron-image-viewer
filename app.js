@@ -25,8 +25,13 @@ let index = 0;
 
 let display_image = () => {
   let url = files[index];
-  console.log("URL", url)
-  $("#image").css("background-image", `url("${url}")`)
+  // Trickery is needed for smooth transition
+  // (in principle these could trigger out of order :-/)
+  let i = new Image();
+  i.onload = () => {
+    $("#image").css("background-image", `url("${url}")`)
+  }
+  i.src = url;
 }
 
 display_image();
