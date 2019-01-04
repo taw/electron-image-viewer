@@ -3,10 +3,11 @@ let path = require("path");
 let $ = require("jquery");
 let remote = require('electron').remote;
 let argv = remote.getGlobal('sharedObject').argv;
+let finderSort = require("finder-sort");
 
 let images_in_folder = (folder_path) => {
   let files = fs.readdirSync(folder_path)
-  return (
+  return finderSort(
     files
       .filter(x =>  /\.(png|jpg|jpeg|gif)/i.test(x))
       .map(x => path.join(folder_path, x))
