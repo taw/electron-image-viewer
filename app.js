@@ -39,19 +39,27 @@ display_image();
 
 $(document).on("keydown", (event) => {
   let key = event.key;
-  if (key === "ArrowRight" || key === "ArrowDown" || key === ".") {
+  if (key === "ArrowRight" || key === "ArrowDown" || key === "." || key === " ") {
     if (index !== files.size - 1) index ++;
     display_image();
   }
-  if (key === "ArrowLeft" || key === "ArrowUp" || key === ",") {
+  else if (key === "ArrowLeft" || key === "ArrowUp" || key === ",") {
     if (index !== 0) index --;
     display_image();
   }
-  if (key === "r") {
+  else if (key === "Home") {
+    index = 0;
+    display_image();
+  }
+  else if (key === "End") {
+    index = files.length - 1;
+    display_image();
+  }
+  else if (key === "r") {
     index = Math.floor(Math.random() * files.length);
     display_image();
   }
-  if (key === "Escape" || key === "q") {
+  else if (key === "Escape" || key === "q") {
     let window = remote.getCurrentWindow();
     window.close();
   }
