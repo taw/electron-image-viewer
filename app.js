@@ -31,6 +31,7 @@ let display_image = () => {
   let i = new Image();
   i.onload = () => {
     $("#image").css("background-image", `url("${url}")`)
+    $("title").text(url);
   }
   i.src = url;
 }
