@@ -41,7 +41,7 @@ display_image();
 $(document).on("keydown", (event) => {
   let key = event.key;
   if (key === "ArrowRight" || key === "ArrowDown" || key === "." || key === " ") {
-    if (index !== files.size - 1) index ++;
+    if (index !== files.length - 1) index ++;
     display_image();
   }
   else if (key === "ArrowLeft" || key === "ArrowUp" || key === ",") {
