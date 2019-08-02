@@ -2,7 +2,10 @@ let { app, BrowserWindow } = require("electron")
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ show: false })
+  win = new BrowserWindow({
+    show: false,
+    webPreferences: { nodeIntegration: true },
+  })
   win.maximize()
   win.show()
   // and load the index.html of the app.
